@@ -1,0 +1,106 @@
+@model IEnumerable<car4you.Models.Utilizador>
+
+@{
+    ViewData["Title"] = "Informação Utilizador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Informação</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Distrito
+            </th>
+            <th>
+                Cidade
+            </th>
+            <th>
+                Morada
+            </th>
+            <th>
+                Porta e andar
+            </th>
+            <th>
+                Código Postal
+            </th>
+            <th>
+                NIF
+            </th>
+            <th>
+                Contacto
+            </th>
+            
+            <th>
+                Utilizador
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Password
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.morada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.portaAndar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codPostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telemovel)
+            </td>
+           @if (item.tipoutilizador==3)
+               {
+                   <td>
+                       Cliente
+                   </td>
+               }
+               else
+               {
+                   <td>
+                       Administração
+                   </td> 
+               }
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.passe)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IDUTILIZADOR">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IDUTILIZADOR">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IDUTILIZADOR">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

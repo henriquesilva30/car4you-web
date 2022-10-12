@@ -1,0 +1,85 @@
+@model car4you.Models.Utilizador
+
+@{
+    ViewData["Title"] = "Registar utilizador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registar</h1>
+
+<h4>Utilizador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+    
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nome" class="control-label">Nome</label>
+                <input asp-for="nome" required class="form-control" />
+                <span asp-validation-for="nome" required  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="distrito" class="control-label">Distrito</label>
+                <input asp-for="distrito" required  class="form-control" />
+                <span asp-validation-for="distrito" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cidade" class="control-label">Cidade</label>
+                <input asp-for="cidade" required  class="form-control" />
+                <span asp-validation-for="cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="morada" class="control-label">Morada</label>
+                <input asp-for="morada" required  class="form-control" />
+                <span asp-validation-for="morada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="portaAndar" class="control-label">Porta e andar</label>
+                <input asp-for="portaAndar" required  class="form-control" />
+                <span asp-validation-for="portaAndar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="codPostal" class="control-label">Código Postal</label>
+                <input asp-for="codPostal" required  class="form-control" />
+                <span asp-validation-for="codPostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nif" class="control-label">NIF</label>
+                <input asp-for="nif" required  class="form-control" />
+                <span asp-validation-for="nif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telemovel" class="control-label">Telemóvel</label>
+                <input asp-for="telemovel" required  class="form-control" />
+                <span asp-validation-for="telemovel" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="tipoutilizador" class="control-label"></label>
+                <input asp-for="tipoutilizador" value="3" class="form-control" />
+                <span asp-validation-for="tipoutilizador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label">Email</label>
+                <input asp-for="email" required  class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="passe" class="control-label">Password</label>
+                <input asp-for="passe" required  class="form-control" />
+                <span asp-validation-for="passe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input  type="submit" value="Registar" class="btn btn-primary" />
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Login">Voltar</a>
+</div>
+<br>
+<br>
+

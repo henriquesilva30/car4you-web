@@ -1,0 +1,248 @@
+@model car4you.Models.Anuncio
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalhes</h1>
+ <h4>anúncio</h4>
+    <hr />
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+
+     
+
+
+        .vertical .carousel-inner {
+            height: 400px;
+        }
+
+        .carousel.vertical .item {
+            -webkit-transition: 0.6s ease-in-out top  ;
+            -moz-transition: 0.6s ease-in-out top  ;
+            -ms-transition: 0.6s ease-in-out top  ;
+            -o-transition: 0.6s ease-in-out top  ;
+            transition: 0.6s ease-in-out top ;
+             left: 0;
+        }
+      
+
+        .carousel.vertical .active {
+            top: 0;
+           
+        }
+
+        .carousel.vertical .next {
+            top: 100%;
+      
+        }
+
+        .carousel.vertical .prev {
+            top: -100%;
+       
+        }
+
+            .carousel.vertical .next.left,
+            .carousel.vertical .prev.right {
+                top: 0;
+            }
+
+        .carousel.vertical .active.left {
+            top: -100%;
+
+        }
+
+        .carousel.vertical .active.right {
+            top: 100%;
+            
+        }
+        .imagem{
+        width: 400px;
+        height: 400px;
+        padding: 10px 0;
+          border: 3px;
+        }
+        img{
+        width: 400px;
+        }
+
+        
+    </style>
+
+
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="overflow: hidden;height: 400px;width: 400px">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" style="height: 400px">
+            <div class="item active imagem">
+                <img src="http://www.motorespt.com/wp-content/uploads/2012/01/honda_delsol_vti7169904705076431682.jpg" alt="" >
+            </div>
+
+            <div class="item imagem">
+                <img src="http://thumbs.img-sprzedajemy.pl/1000x901c/ce/50/67/sprzedam-vw-polo-lift-slawkow-529790435.jpg" alt="" >
+            </div>
+
+            <div class="item" imagem>
+                <img src="http://image.ceneostatic.pl/data/products/74174708/f-volkswagen-polo-1-4-tdi-bluemotion-80-km.jpg" alt="" >
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" data-target="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" data-target="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</asp:Content>
+  
+<div>
+   
+    <dl class="row">    
+        <dt class = "col-sm-2">
+            Título
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.designacao)
+        </dd>
+        <dt class = "col-sm-2">
+            Data de criação
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.datacriado)
+        </dd>
+        <dt class = "col-sm-2">
+            URL
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.url)
+        </dd>
+        <dt class = "col-sm-2">
+            Descrição
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            Negociável
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.renegociar)
+        </dd>
+        
+        <dt class = "col-sm-2">
+            Preço 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.valor) €
+        </dd>
+        <dt class = "col-sm-2">
+            Cor
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cor)
+        </dd>
+        <dt class = "col-sm-2">
+            Número de portas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nporta)
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo de caixa
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.caixa)
+        </dd>
+        <dt class = "col-sm-2">
+            Matricula
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.matricula)
+        </dd>
+        <dt class = "col-sm-2">
+            Lotação
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lotacao)
+        </dd>
+        <dt class = "col-sm-2">
+            Ano da viatura
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ano)
+        </dd>
+        <dt class = "col-sm-2">
+            Cilindrada
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cilindrada)
+        </dd>
+        <dt class = "col-sm-2">
+            Potência
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.potencia)
+        </dd>
+        <dt class = "col-sm-2">
+            Quilômetros
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.kms)
+        </dd>
+        <dt class = "col-sm-2">
+            Modelo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Modelo.designacao)
+        </dd>
+        <dt class = "col-sm-2">
+            Desgaste
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Desgaste.designacao)
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo de segmento
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Segmento.designacao)
+
+        </dd>
+        <dt class="col-sm-2">
+            Tipo Veiculo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipoVeiculo.designacao)
+        </dd>
+        <dt class = "col-sm-2">
+            Utilizador
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Utilizador.nome)
+        </dd>
+    </dl>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.IDANUNCIO">Editar</a> |
+        <a asp-action="Index">Voltar</a> 
+    </div>
+</div>
+<br>
+<br>
+<br>

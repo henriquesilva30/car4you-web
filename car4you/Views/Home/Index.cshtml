@@ -1,0 +1,158 @@
+﻿@model IEnumerable<car4you.Models.Anuncio>
+
+@{
+    ViewData["Title"] = "Listar anúncios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Anúncios</h1>
+
+<table class="highlight responsive-table">
+    <thead>
+        <tr>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Data de criação
+            </th>
+            <th>
+                URL
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Renegociar
+            </th>
+           
+            <th>
+                Valor do veiculo
+            </th>
+            <th>
+                Cor
+            </th>
+            <th>
+                Nº. portas
+            </th>
+            <th>
+                Caixa
+            </th>
+            <th>
+                Matricula
+            </th>
+            <th>
+                Lotação
+            </th>
+            <th>
+                Ano do veiculo
+            </th>
+            <th>
+                Cilindrada
+            </th>
+            <th>
+                Potência
+            </th>
+            <th>
+                Quilometros
+            </th>
+            <th>
+                Combustivel
+            </th>
+            <th>
+                Modelo
+            </th>
+            <th>
+                Desgaste
+            </th>
+            <th>
+                Segmento
+            </th>
+            <th>
+                Tipo de veiculo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.designacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datacriado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+    @if (item.renegociar.Equals("false"))
+    {
+        <td>
+            Não
+        </td>
+    }
+    else
+    {
+        <td>
+            Sim
+        </td> 
+    }
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.valor) €
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nporta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.caixa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lotacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cilindrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.potencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>  item.Combustivel.designacao)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo.designacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desgaste.designacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Segmento.designacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoVeiculo.designacao)
+            </td>
+            
+            <td>
+                <a asp-action="Details" asp-route-id="@item.IDANUNCIO">Detalhes</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

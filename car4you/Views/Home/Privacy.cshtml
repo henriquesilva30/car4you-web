@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+  
+  
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Tlm</th>
+        <th>Morada</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var utilizador in @Model)
+    {
+        <tr>
+            <td>@utilizador.nome</td>
+            <td>@utilizador.telemovel</td>
+            <td>@utilizador.morada</td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,171 @@
+@model car4you.Models.Anuncio
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Anuncio</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="designacao" class="control-label">Titulo</label>
+                <input asp-for="designacao" required text="12312" class="form-control" />
+                <span asp-validation-for="designacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="url" class="control-label">URL</label>
+                <input asp-for="url" class="form-control" />
+                <span asp-validation-for="url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricao" class="control-label">Descrição</label>
+                <input asp-for="descricao" required class="form-control" />
+                <span asp-validation-for="descricao" class="text-danger"></span>
+            </div>
+            
+            
+            <div class="form-group">
+                <label asp-for="renegociar" class="control-label">
+                    <input type="checkbox"  style="position: relative;opacity: 1;" asp-for="renegociar"> Negociável
+                </label>
+                <span asp-validation-for="renegociar" class="text-danger"></span>
+            </div>
+                      
+            <div class="form-group">
+                <label asp-for="valor" class="control-label">Valor da viatura</label>
+                <input asp-for="valor" required class="form-control" />
+                <span asp-validation-for="valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cor" class="control-label">Cor</label>
+                <input asp-for="cor" class="form-control" />
+                <span asp-validation-for="cor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nporta" class="control-label">Número de portas</label>
+                <input asp-for="nporta" class="form-control" />
+                <span asp-validation-for="nporta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="caixa" class="control-label">Tipo de caixa</label>
+                <input asp-for="caixa" required class="form-control" />
+                <span asp-validation-for="caixa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="matricula" class="control-label">Matricula</label>
+                <input asp-for="matricula" class="form-control" />
+                <span asp-validation-for="matricula" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lotacao" class="control-label">Lotação do veiculo</label>
+                <input asp-for="lotacao" class="form-control" />
+                <span asp-validation-for="lotacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ano" class="control-label">Ano</label>
+                <input asp-for="ano" required class="form-control" />
+                <span asp-validation-for="ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cilindrada" class="control-label">Cilindrada</label>
+                <input asp-for="cilindrada" required class="form-control" />
+                <span asp-validation-for="cilindrada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="potencia" class="control-label">Potência</label>
+                <input asp-for="potencia" required class="form-control" />
+                <span asp-validation-for="potencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kms" class="control-label">Quilômetros</label>
+                <input asp-for="kms" required class="form-control" />
+                <span asp-validation-for="kms" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Combustivel" class="control-label">Combustivel</label>
+                <select asp-for="Combustivel" required class="form-control">
+                    @foreach (SelectListItem item in ViewBag.CombList)
+                    {
+                        if (@item.Value == @ViewBag.ValueToSetcomb)
+                        {
+                            <option selected value="@item.Value">@item.Text</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Combustivel" class="text-danger"></span>
+            </div>
+                   
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label">Modelo</label>
+                <select required asp-for="Modelo" asp-items="@ViewBag.ModeList" class="form-control">
+                    @foreach (SelectListItem item in ViewBag.ModeList)
+                    {
+                        if (@item.Value == @ViewBag.ValueToSetmodel)
+                        {
+                            <option selected value="@item.Value">@item.Text</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    }
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Desgaste" class="control-label">Desgaste</label>
+                <select asp-for="Desgaste" required asp-items="@ViewBag.DesgList" asp- class="form-control">
+                    @foreach (SelectListItem item in ViewBag.DesgList)
+                    {
+                        if (@item.Value == @ViewBag.ValueToSetdesg)
+                        {
+                            <option selected value="@item.Value">@item.Text</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    }
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Segmento" class="control-label">Segmento</label>
+                <select asp-for="Segmento" required asp-items="@ViewBag.SegList" class="form-control">
+                    @foreach (SelectListItem item in ViewBag.SegList)
+                    {
+                        if (@item.Value == @ViewBag.ValueToSetseg)
+                        {
+                            <option selected value="@item.Value">@item.Text</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    }
+                </select>
+            </div>
+            
+                     
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+        <br>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
